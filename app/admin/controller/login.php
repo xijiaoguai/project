@@ -8,7 +8,9 @@
 
 namespace app\admin\controller;
 
-class login
+use app\admin\base;
+
+class login extends base
 {
     public function index()
     {
@@ -22,6 +24,6 @@ class login
 
     public function logout()
     {
-        return 'logout';
+        return view('index',$this->data);
     }
 }

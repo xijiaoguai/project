@@ -7,13 +7,11 @@
  */
 
 namespace app\admin\controller;
-
-use app\common\enum\app;
-
-class index
+use app\admin\base;
+class index extends base
 {
     public function index()
     {
-        return view('index',['title'=>app::TITLE_NAME]);
+        return view('index',$this->data);
     }
 }
