@@ -33,6 +33,7 @@ return [
     // 标签库标签结束标记
     'taglib_end'   => '}',
     'tpl_replace_string' => [
-        '__MUI__' => '/public/static/mui'
+        '__MUI__' => '/public/static/mui',
+        '__STATIC__' => '/public/static',
     ]
 ];

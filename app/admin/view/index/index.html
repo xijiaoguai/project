@@ -1,20 +1,8 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<title>Document</title>
-	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-	<link rel="stylesheet" type="text/css" href="__MUI__/css/mui.css"/>
-</head>
-<body>
-	<div class="mui-content">
-		<header class="mui-bar mui-bar-nav">
-			<h1 class="mui-title">标题</h1>
-		</header>
-	</div>
-	<script src="__MUI__/js/mui.js" type="text/javascript" charset="utf-8"></script>
-	<script type="text/javascript">
-	mui.init()
-	</script>
-</body>
-</html>
+{extend name="base" /}
+
+{block name="title"}{$title}{/block}
+{block name="menu"}
+<a href="/" >首页</a>
+<a href="/info/" >资讯</a>
+<a href="/bbs/" >论坛</a>
+{/block}

@@ -8,12 +8,15 @@
 
 namespace app\admin\controller;
 
-use app\common\enum\app;
-
-class index
+class user
 {
     public function index()
     {
-        return view('index',['title'=>app::TITLE_NAME]);
+        return view('index',['param'=>'World']);
+    }
+
+    public function info()
+    {
+        return 'info';
     }
 }
