@@ -11,3 +11,4 @@
 
 // 应用公共文件
 const APP_TITLE = '测试项目';
+const LOGO_NAME = 'PROJECT';

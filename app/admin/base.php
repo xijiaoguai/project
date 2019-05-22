@@ -6,6 +6,8 @@
  * Time: 22:25
  */
 namespace app\admin;
+use app\admin\controller\menu;
+use app\common\model\admin_menu;
 use think\App;
 use think\Controller;
 
@@ -18,10 +20,29 @@ class base extends Controller
         parent::__construct($app);
         $this->data['title'] = APP_TITLE;
         $this->data['date'] = date('Y-m-d H:i:s');
+        $this->data['logoName'] = LOGO_NAME;
+        $this->data['menuList'] = $this->getMenuList();
     }
 
-    public function addData(array $data) :void
+    public function getMenuList()
     {
-        $this->data += $data;
+        $menuData = admin_menu::order(['level', 'rank'])
+            ->select()
+            ->toArray();
+        $menuList = $this->getTree($menuData);
+        return $menuList;
+    }
+
+    public function getTree($array, $pid = 0)
+    {
+        $list = [];
+        foreach ($array as $key => $value) {
+            if ($value['parent_id'] == $pid) {
+                $childList = $this->getTree($array, $value['id']);
+                $value['children'] = $childList;
+                $list[] = $value;
+            }
+        }
+        return $list;
     }
 }
