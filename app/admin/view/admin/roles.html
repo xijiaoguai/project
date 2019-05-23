@@ -1,0 +1,27 @@
+<table class="table table-sm">
+    <thead class="thead-light">
+    <tr>
+        <th scope="col">ID</th>
+        <th scope="col">角色名称</th>
+        <th scope="col">状态</th>
+        <th scope="col">创建时间</th>
+        <th scope="col">操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {volist name="adminRoles" id="vo"}
+    <tr>
+        <th scope="row">{$vo.id}</th>
+        <td>{$vo.name}</td>
+        <td>{if !$vo.status}关闭{else /}开启{/if}</td>
+        <td>{$vo.create_time}</td>
+        <td>
+            <!--<div class="switch" data-on="primary" data-off="info" data-size='mini'>-->
+                <!--<input name="switch" type="checkbox" checked/>-->
+            <!--</div>-->
+            <input type="checkbox" name="switch">
+        </td>
+    </tr>
+    {/volist}
+    </tbody>
+</table>

@@ -8,15 +8,17 @@
 
 namespace app\admin\controller;
 
-class user
+use app\admin\base;
+
+class user extends base
 {
     public function index()
     {
-        return view('index',['param'=>'World']);
+        return view('index', $this->data);
     }
 
     public function info()
     {
-        return 'info';
+        return view('info', $this->data);
     }
 }

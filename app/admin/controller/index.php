@@ -7,7 +7,9 @@
  */
 
 namespace app\admin\controller;
+
 use app\admin\base;
+
 class index extends base
 {
     /**
@@ -16,6 +18,6 @@ class index extends base
      */
     public function index()
     {
-        return view('index',$this->data);
+        return view('index', $this->data);
     }
 }

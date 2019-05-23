@@ -14,7 +14,7 @@ class login extends base
 {
     public function index()
     {
-        return view('index',['param'=>'World']);
+        return view('index',$this->data);
     }
 
     public function login()

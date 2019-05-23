@@ -1,18 +1,20 @@
-<div class="col-2 pull-right" id="nav">
+<div class="col-2" id="nav">
     {volist name="menuList" id="vo"}
     <div class="card">
         <div class="card-header">
-            <a class="collapsed card-link" {if !$vo.url}data-toggle="collapse" {/if}  href="{if $vo.url}{:url($vo.url)}{else /}#menu_{$vo.id}{/if}">{$vo.name}</a>
+            <a class="collapsed card-link text-dark font-weight-bold" {if !$vo.url}data-toggle="collapse" {/if}
+            href="{if $vo.url}{:url($vo.url)}{else /}#menu_{$vo.id}{/if}">{$vo.name}</a>
         </div>
         {if condition="$vo['children'] neq ''"}
-        <div id="menu_{$vo.id}" class="collapse" data-parent="#accordion">
-        {volist name="vo.children" id="v2"}
+        <div id="menu_{$vo.id}" class="collapse {if $vo.isShow}show{/if}" data-parent="#accordion">
+            {volist name="vo.children" id="v2"}
             <div class="card-header">
-                <a class="collapsed card-link" href="{:url($v2.url)}">{$v2.name}</a>
+                <a class="collapsed card-link  text-dark {if $v2.active}font-weight-bold{/if}" href="{:url($v2.url)}">&nbsp;&nbsp;&nbsp;{$v2.name}</a>
             </div>
-        {/volist}
+            {/volist}
         </div>
         {/if}
     </div>
     {/volist}
 </div>
+<div class="col-10">

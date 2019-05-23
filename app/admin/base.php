@@ -36,9 +36,18 @@ class base extends Controller
     public function getTree($array, $pid = 0)
     {
         $list = [];
-        foreach ($array as $key => $value) {
+        foreach ($array as $value) {
             if ($value['parent_id'] == $pid) {
                 $childList = $this->getTree($array, $value['id']);
+                $value['isShow'] = false;
+                $value['active'] = false;
+                foreach ($childList as &$child) {
+                    if (url($child['url']) == url()){
+                        $child['active'] = true;
+                        $value['isShow'] = true;
+                        break;
+                    }
+                }
                 $value['children'] = $childList;
                 $list[] = $value;
             }
